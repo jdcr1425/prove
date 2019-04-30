@@ -1,0 +1,11 @@
+Juan david casseres rodriguez
+
+Esta prueba fue realizada en Angular
+
+para poder ejecutar la prueba abrimos la consola de comandos y nos dirigimos a la carpeta del proyecto y luego ejecutamos ng serve --o.
+
+resumen consola
+
+cd Desktop
+cd zeustest
+ng serve --o

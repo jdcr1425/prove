@@ -1,0 +1,59 @@
+<div class="container-fluid">
+
+<!-- Just an image -->
+<nav class="navbar navbar-danger bg-danger bar">
+  <a class="navbar-brand" href="#">
+    <img src="../assets/img/youtubeIcon.png" class="d-inline-block align-top" width="90" height="30" alt="">
+  </a>
+  <div><input type="text" placeholder="Search" [(ngModel)]="name" class="form-control sizes"/>
+  
+  </div>
+  <span class="input-group-btn">
+    <input type="button" value="Go"  class="btn btn-dark boton" (click)="search()" >
+</span>
+   
+</nav>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-7">
+      <div *ngIf="name != ''"><h2>Results for - {{name}}</h2>
+      
+        <li  class="list-group-item">
+            <div class="video-list media" *ngFor="let data of videos;">
+                <div class="media-left">
+                    <iframe [src]="data.id.videoId | domseguro:'https://youtube.com/embed/'" height="200" width="300"></iframe>
+                </div>
+                <div class="media-body">
+                    <div class="media-heading">
+                        <a [routerLink]="['/video', data.id.videoId]"><strong>{{data.snippet.title}} </strong></a>
+                        <h6 class="video-list-item-h6">{{data.snippet.channelTitle}}</h6>
+                        <p class="video-list-item-p">{{data.snippet.publishedAt | time}}</p>
+                        <p class="video-list-item-p">{{data.snippet.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </li>
+      
+      
+      </div>
+     
+      
+    </div>
+
+    <div class="col-5">
+        <router-outlet></router-outlet>
+    </div>
+
+
+
+  </div>
+  
+
+  </div>
+
+ 
+
+</div>
